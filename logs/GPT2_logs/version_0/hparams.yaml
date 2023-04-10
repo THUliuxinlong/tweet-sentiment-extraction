@@ -1,0 +1,33 @@
+accelerator: gpu
+adam_epsilon: 1.0e-08
+devices:
+- 1
+do_predict: true
+do_train: true
+eval_batch_size: 32
+learning_rate: 0.0005
+logger: !!python/object:pytorch_lightning.loggers.tensorboard.TensorBoardLogger
+  _default_hp_metric: true
+  _experiment: null
+  _fs: !!python/object/apply:fsspec.spec.make_instance
+  - !!python/name:fsspec.implementations.local.LocalFileSystem ''
+  - !!python/tuple []
+  - {}
+  _kwargs: {}
+  _log_graph: false
+  _name: GPT2_logs
+  _prefix: ''
+  _root_dir: logs
+  _sub_dir: null
+  _version: null
+  hparams: {}
+max_grad_norm: 1.0
+max_length: 128
+model_name_or_path: gpt2
+num_train_epochs: 10
+output_dir: output
+seed: 42
+tokenizer_name_or_path: gpt2
+train_batch_size: 32
+warmup_steps: 100
+weight_decay: 0.01
